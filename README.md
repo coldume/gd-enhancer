@@ -23,4 +23,4 @@ Adding image/text watermark to images with 9 position options.
 
 Rendering alpha channel when converting PNG to GIF.
 
-You can find some good examples on website http://www.gdenhancer.com/index.php?content=home
+You can find some good examples on website http://www.gdenhancer.com/
