@@ -28,7 +28,7 @@ class BackgroundGIF extends Background {
       $this->width = $action['width'];
       $this->height = $action['height'];
       $fileobject = Library::getFileObjectFromContents($action['contents']);
-      include 'GIFSplit.php';
+      include_once 'GIFSplit.php';
       $gif = new GIFSplit($fileobject);
       $this->frames = $gif->frames;
    }
