@@ -172,7 +172,7 @@ class GIFParse {
 
    protected function skipImageDLD() {
       $this->skipBytesByLength(8);
-      $bitstring = $this->get8BitStringFromBinaryString($this->readBytesByLength(1));
+      $bitstring = Library::get8BitStringFromBinaryString($this->readBytesByLength(1));
       if (substr($bitstring, 0, 1) === '1') {
          $localcolortablelength = 3 * pow(2, base_convert(substr($bitstring, 2, 1), 2, 10) + 1);
          $this->skipBytesByLength($localcolortablelength);
@@ -185,7 +185,12 @@ class GIFParse {
       $i = 0;
       $string = null;
       while ($i < $length) {
-         $string = $string . $this->fileobject->fgetc();
+         $char = $this->fileobject->fgetc();
+         if ($char === false) {
+             throw new \Exception('Malformed GIF');
+         }
+         $string = $string . $char;
+
          $i++;
       }
       return $string;
