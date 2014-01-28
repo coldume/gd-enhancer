@@ -13,7 +13,7 @@ class GIFSplit {
    }
 
    protected function setGIF($fileobject) {
-      include 'GIFParse.php';
+      include_once 'GIFParse.php';
       $this->gif = new GIFParse($fileobject, true);
    }
 
