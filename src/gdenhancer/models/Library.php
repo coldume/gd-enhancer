@@ -61,22 +61,22 @@ class Library {
    }
 
    public static function getContentsFromGDResource($resource, $format) {
+      ob_start();
       switch ($format) {
          case 'gif':
-            $imagexxx = 'imagegif';
+            imagegif($resource);
             break;
          case 'jpeg':
-            $imagexxx = 'imagejpeg';
+            imagejpeg($resource, NULL, 100);
             break;
          case 'png':
-            $imagexxx = 'imagepng';
+            imagepng($resource, NULL, 9);
       }
-      ob_start();
-      $imagexxx($resource);
       $contents = ob_get_contents();
       ob_end_clean();
       return $contents;
    }
+
 
    public static function getFileObjectFromContents($contents) {
       $fileobject = new \SplTempFileObject();
