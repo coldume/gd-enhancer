@@ -118,7 +118,7 @@ class OutputGIF extends Output {
    }
 
    protected function setContents() {
-      include 'GIFCreate.php';
+      include_once 'GIFCreate.php';
       $gif = new GIFCreate($this->frames);
       $this->contents = $gif->contents;
    }
