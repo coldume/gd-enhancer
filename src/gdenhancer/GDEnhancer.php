@@ -16,8 +16,8 @@ namespace gdenhancer;
 use \gdenhancer\models\Actions;
 use \gdenhancer\models\Run;
 
-include 'models' . DIRECTORY_SEPARATOR . 'Actions.php';
-include 'models' . DIRECTORY_SEPARATOR . 'Run.php';
+include_once 'models' . DIRECTORY_SEPARATOR . 'Actions.php';
+include_once 'models' . DIRECTORY_SEPARATOR . 'Run.php';
 
 class GDEnhancer {
 
