@@ -2,7 +2,7 @@
 
 namespace gdenhancer\models;
 
-include 'Library.php';
+include_once 'Library.php';
 
 class Actions {
 
