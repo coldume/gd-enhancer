@@ -2,8 +2,8 @@
 
 namespace gdenhancer\models;
 
-include 'Background.php';
-include 'Output.php';
+include_once 'Background.php';
+include_once 'Output.php';
 
 class Run {
 
