@@ -31,7 +31,10 @@ class GIFSplit {
          }
          $contents .= $frame['imagedata'];
          $contents .= "\x3B";
-         $oldimage = imagecreatefromstring($contents);
+         $oldimage = @imagecreatefromstring($contents);
+         if ($oldimage === false) {
+            throw new \exception('Malformed GIF');
+         }
          $width = Library::getUnsignedShortFromBinaryString($this->gif->logicalscreenwidth);
          $height = Library::getUnsignedShortFromBinaryString($this->gif->logicalscreenheight);
          $newimage = imagecreatetruecolor($width, $height);
