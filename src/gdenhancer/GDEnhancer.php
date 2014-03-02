@@ -7,7 +7,7 @@
  * @author     Coldume <coldume@gmail.com>
  * @copyright  2013 Coldume
  * @license    GNU GENERAL PUBLIC LICENSE Version 3
- * @version    GD Enhancer 3.08
+ * @version    GD Enhancer 4.01
  * @link       http://www.gdenhancer.com/
  */
 
