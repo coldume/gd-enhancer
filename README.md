@@ -1,7 +1,6 @@
-GDEnhancer
-==========
+# GDEnhancer
 
-What is GD Enhancer?
+## What is GD Enhancer?
 
 It is open source that everyone can use.
 
@@ -13,7 +12,7 @@ It is an image editor, not image creator. That means you have to edit an existin
 
 My purpose to write GD Enhancer is to bulk edit images. Such as editing the images that users upload.
 
-Features
+## Features
 
 Keeping GIF animation after editing.
 
