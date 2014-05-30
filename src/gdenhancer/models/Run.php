@@ -51,7 +51,7 @@ class Run {
    }
 
    protected function setBackgroundGIF() {
-      include 'BackgroundGIF.php';
+      include_once 'BackgroundGIF.php';
       $this->background = new BackgroundGIF($this->actions->background);
    }
 
@@ -61,7 +61,7 @@ class Run {
    }
 
    protected function setSaveGIF() {
-      include 'OutputGIF.php';
+      include_once 'OutputGIF.php';
       $output = new OutputGIF($this->actions->output, $this->background, $this->layers);
       $this->save = $output->save();
    }
