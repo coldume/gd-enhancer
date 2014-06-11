@@ -119,6 +119,16 @@ class Library {
             $src_h = (int) round(($oldwidth * $newheight) / $newwidth);
             $src_y = (int) round(($oldheight - $src_h) / 2);
          }
+      } else if ($option === 'keep') {
+         if (empty($newheight)) {
+            $ratio = $newwidth / $oldwidth;
+            $dst_h = $oldheight * $ratio;
+         } else if (empty($newwidth)) {
+            $ratio = $newheight / $oldheight;
+            $dst_w = $oldwidth * $ratio;
+         } else {
+            throw new \Exception('Keep mode needs at least width or height parameter');
+         }
       }
       if ($src_w < 1 || $src_h < 1) {
          throw new \Exception('Image width or height is too small');
