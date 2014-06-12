@@ -64,16 +64,18 @@ class GDEnhancer {
 
     /**
      * Save file to disk
-     * @param $filename
+     * Use one of the save() or saveTo() method
+     * @param $basename
      * @param string $format
      * @param bool $flag
+     * @param int $quality
      */
-    public function saveTo($filename, $format = 'default', $flag = true)
+    public function saveTo($basename, $format = 'default', $flag = true, $quality = 100)
     {
-       $save = $this->save($format, $flag);
+       $save = $this->save($format, $flag, $quality);
 
        // Writing file
-       file_put_contents($filename, $save['contents']);
+       file_put_contents($basename.'.'.$save['extension'], $save['contents']);
 
        // Return save for direct use
        return $save;
