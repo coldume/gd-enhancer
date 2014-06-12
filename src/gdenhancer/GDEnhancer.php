@@ -62,6 +62,23 @@ class GDEnhancer {
       return $run->save;
    }
 
+    /**
+     * Save file to disk
+     * @param $filename
+     * @param string $format
+     * @param bool $flag
+     */
+    public function saveTo($filename, $format = 'default', $flag = true)
+    {
+       $save = $this->save($format, $flag);
+
+       // Writing file
+       file_put_contents($filename, $save['contents']);
+
+       // Return save for direct use
+       return $save;
+    }
+
 }
 
 ?>
