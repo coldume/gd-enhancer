@@ -55,10 +55,10 @@ class GDEnhancer {
       $this->actions->layerImageResize($key, $width, $height, $option);
    }
 
-   public function save($format = 'default', $flag = true) {
+   public function save($format = 'default', $flag = true, $quality = 100) {
       $this->actions->saveFormat($format);
       $this->actions->GIFFlag($flag);
-      $run = new Run($this->actions);
+      $run = new Run($this->actions, $quality);
       return $run->save;
    }
 

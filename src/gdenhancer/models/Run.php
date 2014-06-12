@@ -13,7 +13,7 @@ class Run {
    protected $background;
    protected $canvas;
 
-   public function __construct($actions) {
+   public function __construct($actions, $quality = 100) {
       $this->setActions($actions);
       if (empty($this->actions->layers) === false) {
          $this->setLayers();
@@ -24,11 +24,11 @@ class Run {
             $this->setSaveGIF();
          } catch (\Exception $e) {
             $this->setBackground();
-            $this->setSave();
+            $this->setSave($quality);
          }
       } else {
          $this->setBackground();
-         $this->setSave();
+         $this->setSave($quality);
       }
    }
 
@@ -55,9 +55,9 @@ class Run {
       $this->background = new BackgroundGIF($this->actions->background);
    }
 
-   protected function setSave() {
+   protected function setSave($quality = 100) {
       $output = new Output($this->actions->output, $this->background, $this->layers);
-      $this->save = $output->save();
+      $this->save = $output->save($quality);
    }
 
    protected function setSaveGIF() {

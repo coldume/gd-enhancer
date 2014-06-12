@@ -60,17 +60,17 @@ class Library {
       return $resource;
    }
 
-   public static function getContentsFromGDResource($resource, $format) {
+   public static function getContentsFromGDResource($resource, $format, $quality = 100) {
       ob_start();
       switch ($format) {
          case 'gif':
             imagegif($resource);
             break;
          case 'jpeg':
-            imagejpeg($resource, NULL, 100);
+            imagejpeg($resource, NULL, $quality);
             break;
          case 'png':
-            imagepng($resource, NULL, 9);
+            imagepng($resource, NULL, $quality/100 * 9 );
       }
       $contents = ob_get_contents();
       ob_end_clean();
