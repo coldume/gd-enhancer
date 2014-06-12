@@ -22,8 +22,8 @@ class Output {
       @imagedestroy($this->resource);
    }
 
-   public function save() {
-      $contents = Library::getContentsFromGDResource($this->resource, $this->format);
+   public function save($quality = 100) {
+      $contents = Library::getContentsFromGDResource($this->resource, $this->format, $quality);
       $format = $this->format;
       $extension = $this->getExtensionFromFormat($format);
       $mime = $this->getMimeFromFormat($format);
