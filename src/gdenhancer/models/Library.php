@@ -86,16 +86,18 @@ class Library {
    }
 
    public static function getResizeArgs($oldwidth, $oldheight, $newwidth, $newheight, $option) {
+      $src_y = 0;
+      $src_x = 0;
+      $src_w = $oldwidth;
+      $src_h = $oldheight;
+      $dst_w = $newwidth;
+      $dst_h = $newheight;
       if ($option === 'stretch') {
          if ($oldwidth === $newwidth && $oldheight === $newheight) {
             return false;
          }
          $dst_w = $newwidth;
          $dst_h = $newheight;
-         $src_w = $oldwidth;
-         $src_h = $oldheight;
-         $src_x = 0;
-         $src_y = 0;
       } else if ($option === 'shrink') {
          if ($oldwidth <= $newwidth && $oldheight <= $newheight) {
             return false;
@@ -106,27 +108,27 @@ class Library {
             $dst_w = (int) round(($newheight * $oldwidth) / $oldheight);
             $dst_h = $newheight;
          }
-         $src_x = 0;
-         $src_y = 0;
-         $src_w = $oldwidth;
-         $src_h = $oldheight;
       } else if ($option === 'fill') {
          if ($oldwidth === $newwidth && $oldheight === $newheight) {
             return false;
          }
          if ($oldwidth / $oldheight >= $newwidth / $newheight) {
             $src_w = (int) round(($newwidth * $oldheight) / $newheight);
-            $src_h = $oldheight;
             $src_x = (int) round(($oldwidth - $src_w) / 2);
-            $src_y = 0;
          } else {
-            $src_w = $oldwidth;
             $src_h = (int) round(($oldwidth * $newheight) / $newwidth);
-            $src_x = 0;
             $src_y = (int) round(($oldheight - $src_h) / 2);
          }
-         $dst_w = $newwidth;
-         $dst_h = $newheight;
+      } else if ($option === 'keep') {
+         if (empty($newheight)) {
+            $ratio = $newwidth / $oldwidth;
+            $dst_h = $oldheight * $ratio;
+         } else if (empty($newwidth)) {
+            $ratio = $newheight / $oldheight;
+            $dst_w = $oldwidth * $ratio;
+         } else {
+            throw new \Exception('Keep mode needs at least width or height parameter');
+         }
       }
       if ($src_w < 1 || $src_h < 1) {
          throw new \Exception('Image width or height is too small');
