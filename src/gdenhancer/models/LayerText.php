@@ -69,7 +69,8 @@ class LayerText {
 
    protected function setResource() {
       $ftbbox = imageftbbox($this->fontsize, 0, $this->fontfile, $this->text, array('linespacing' => $this->linespacing));
-      $ftboxwidth = abs($ftbbox[0] - $ftbbox[2]);
+      $bugfix = ceil($this->fontsize/5);                                        
+      $ftboxwidth = abs($ftbbox[0] - $ftbbox[2]) + $bugfix; 
       $ftboxheight = abs($ftbbox[1] - $ftbbox[7]);
       $blockwidth = $ftboxwidth + $this->blockpadding[1] + $this->blockpadding[3];
       $blockheight = $ftboxheight + $this->blockpadding[0] + $this->blockpadding[2];
