@@ -106,7 +106,9 @@ class LayerText {
       imagefill($this->resource, 0, 0, $transparentcolor);
       if (isset($this->blockcolor) === true) {
          $blockcolor = imagecolorallocate($this->resource, $this->blockcolor['red'], $this->blockcolor['green'], $this->blockcolor['blue']);
-         imageantialias($this->resource, true);
+         if (function_exists('imageantialias')) {
+             imageantialias($this->resource, true);
+         }
          imagefilledpolygon($this->resource, array($blockx[0], $blocky[0], $blockx[1], $blocky[1], $blockx[2], $blocky[2], $blockx[3], $blocky[3]), 4, $blockcolor);
       }
       $fontcolor = imagecolorallocate($this->resource, $this->fontcolor['red'], $this->fontcolor['green'], $this->fontcolor['blue']);
