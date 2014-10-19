@@ -1,4 +1,8 @@
-# GDEnhancer
+# Ddprecated
+
+See https://github.com/coldume/imagecraft instead.
+
+# ~~GDEnhancer~~
 
 ## What is GD Enhancer?
 
