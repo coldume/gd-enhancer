@@ -1,6 +1,6 @@
-# Ddprecated
+# Deprecated
 
-See https://github.com/coldume/imagecraft instead.
+Use [Imagecraft](https://github.com/coldume/imagecraft) instead.
 
 # ~~GDEnhancer~~
 
